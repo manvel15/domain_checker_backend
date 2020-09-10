@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { MulterModule } from '@nestjs/platform-express';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { configService } from './config/config.service.ts';
+import { configService } from './config/config.service';
 
 let MULTER_UPLOAD_FILESIZE_BYTES = 1.024e9;
 
