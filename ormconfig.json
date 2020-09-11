@@ -4,7 +4,8 @@
   "port": 5432,
   "username": "postgres",
   "password": "root",
-  "database": "test_project",
+  "database": "project",
+  "synchronize": true,
   "entities": [
     "**/*.entity{.ts,.js}"
   ],
@@ -13,7 +14,7 @@
     "src/migration/*.ts"
   ],
   "cli": {
-    "migrationsDir": "src/migration"
+    "migrationsDir": "./src/migration"
   },
   "ssl": false
 }

@@ -30,15 +30,15 @@ class ConfigService {
   }
 
   public getTypeOrmConfig(): TypeOrmModuleOptions {
+    console.log('postgres', this.getValue('POSTGRES_USER'), this.getValue('POSTGRES_PASSWORD'), this.getValue('POSTGRES_DATABASE'));
     return {
       type: 'postgres',
-
       host: this.getValue('POSTGRES_HOST'),
       port: parseInt(this.getValue('POSTGRES_PORT')),
       username: this.getValue('POSTGRES_USER'),
       password: this.getValue('POSTGRES_PASSWORD'),
       database: this.getValue('POSTGRES_DATABASE'),
-
+      synchronize: true,
       entities: ['**/*.entity{.ts,.js}'],
 
       migrationsTableName: 'migration',
@@ -46,7 +46,7 @@ class ConfigService {
       migrations: ['src/migration/*.ts'],
 
       cli: {
-        migrationsDir: 'src/migration',
+        migrationsDir: './src/migration',
       },
 
       ssl: this.isProduction(),

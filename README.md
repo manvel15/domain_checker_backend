@@ -33,6 +33,36 @@
 ```bash
 $ npm install
 ```
+## Install docer
+```bash
+## 1. Add Dependencies
+sudo apt-get update; \
+sudo apt-get install \
+ apt-transport-https \
+ ca-certificates \
+ curl \
+ gnupg-agent \
+ software-properties-common
+
+## 2. Add docker gpg key curl
+-fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+
+3. Setup Repository
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+
+## 4. Install Docker
+sudo apt-get update; \
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+
+## install database
+```bash
+npm run start:dev:db
+npm run pretypeorm
 
 ## Running the app
 
