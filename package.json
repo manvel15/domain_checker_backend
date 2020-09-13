@@ -15,16 +15,15 @@
     "start:prod": "node dist/main",
     "start:dev:db": "sudo ./start-db.sh",
     "pretypeorm": "(rm ormconfig.json || :) && ts-node -r tsconfig-paths/register ./ormconfig.ts",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
-    "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
+    "typeorm": "npm run pretypeorm && ts-node ./node_modules/typeorm/cli -f ./ormconfig.json",
+    "typeorm:migration:create": "npm run typeorm -- migration:create -n",
     "typeorm:migration:run": "npm run typeorm -- migration:run",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
-    "typeorm:cli": "npm run pretypeorm && ts-node ./node_modules/typeorm/cli -f ./ormconfig.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^7.0.0",

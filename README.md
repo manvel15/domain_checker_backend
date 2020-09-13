@@ -62,7 +62,10 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 ## install database
 ```bash
 npm run start:dev:db
-npm run pretypeorm
+
+### crate and run migratin 
+npm run typeorm:migration:create "MigratinName"
+npm run typeorm:migration:run
 
 ## Running the app
 

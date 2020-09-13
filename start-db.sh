@@ -3,7 +3,7 @@ set -e
 
 SERVER="postgres";
 PW="root";
-DB="test_project";
+DB="project";
 
 echo "echo stop & remove old docker [$SERVER] and starting new fresh instance of [$SERVER]"
 (docker kill $SERVER || :) && \

@@ -6,6 +6,7 @@
   "password": "root",
   "database": "project",
   "synchronize": true,
+  "autoLoadEntities": true,
   "entities": [
     "**/*.entity{.ts,.js}"
   ],
