@@ -13,6 +13,19 @@ let MULTER_UPLOAD_FILESIZE_BYTES = 1.024e9;
     MulterModule.register({ limits: { fileSize: MULTER_UPLOAD_FILESIZE_BYTES }, }),
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     TypeOrmModule.forFeature([DomainEntity]),
+    ClientsModule.register([
+      {
+        name: 'MATH_SERVICE',
+        transport: Transport.RMQ,
+        options: {
+          urls: ['amqp://localhost:5672'],
+          queue: 'domains_queue',
+          queueOptions: {
+            durable: false
+          },
+        },
+      },
+    ]),
   ],
   controllers: [AppController],
   providers: [AppService],
